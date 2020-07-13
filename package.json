@@ -22,7 +22,17 @@
     "lint": "eslint src/**/* --ext .ts",
     "lint:fix": "eslint src/**/* --ext .ts --fix"
   },
-  "license": "MIT",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/akera-io/akera-web-middleware/raw/master/LICENSE"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akera-io/akera-web-middleware.git"
+  },
+  "bugs": {
+    "url": "https://github.com/akera-io/akera-web-middleware/issues"
+  },
   "peerDependencies": {
     "@akeraio/api": "^1.1.13",
     "express": "^4.17.1"
