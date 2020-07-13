@@ -2,6 +2,8 @@ import {Router} from "express";
 import {ConnectionPool, IBroker, IBrokerConfig, AkeraLogger} from "@akeraio/api";
 
 export interface IWebMiddleware {
+  readonly dependencies: Array<string>;
+
   mount(config: IBroker | IBrokerConfig | ConnectionPool, logger?: AkeraLogger): Router;
 
   init(config: IBroker | IBrokerConfig | ConnectionPool, router: Router, logger?: AkeraLogger): void;
