@@ -2,11 +2,7 @@
 
 Middleware definition for Akera.io web service.
 
-## Installation
-
-```bash
-$ npm install @akeraio/web-middleware
-```
+This contains only the interface/abstract class definitions.
 
 ## Docs
 

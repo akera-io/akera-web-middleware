@@ -4,9 +4,9 @@ import {ConnectionPool, IBroker, IBrokerConfig, AkeraLogger} from "@akeraio/api"
 export interface IWebMiddleware {
   readonly dependencies: Array<string>;
 
-  mount(config: IBroker | IBrokerConfig | ConnectionPool, logger?: AkeraLogger): Router;
+  mount(config: IBroker | IBrokerConfig | Array<IBrokerConfig> | ConnectionPool, logger?: AkeraLogger): Router;
 
-  init(config: IBroker | IBrokerConfig | ConnectionPool, router: Router, logger?: AkeraLogger): void;
+  init(config: IBroker | IBrokerConfig | Array<IBrokerConfig> | ConnectionPool, router: Router, logger?: AkeraLogger): void;
 }
 
 export abstract class WebMiddleware implements IWebMiddleware {
@@ -14,7 +14,9 @@ export abstract class WebMiddleware implements IWebMiddleware {
     return [];
   }
 
-  abstract mount(config: IBroker | IBrokerConfig | ConnectionPool, logger?: AkeraLogger): Router;
+  abstract mount(config: IBroker | IBrokerConfig | Array<IBrokerConfig> | ConnectionPool, logger?: AkeraLogger): Router;
 
-  abstract init(config: IBroker | IBrokerConfig | ConnectionPool, router: Router, logger?: AkeraLogger): void;
+  init(config: IBroker | IBrokerConfig | Array<IBrokerConfig> | ConnectionPool, router: Router, logger?: AkeraLogger): void {
+    router.use(this.mount(config, logger));
+  }
 }
