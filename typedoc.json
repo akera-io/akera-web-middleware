@@ -8,9 +8,9 @@
         "test"
     ],
     "out": "./doc",
-    "name": "Akera Passport",
+    "name": "Akera Middleware",
     "version": true,
-    "ignoreCompilerErrors": true,
+    "ignoreCompilerErrors": false,
     "mode": "file",
     "hideGenerator": true,
     "excludePrivate": true
